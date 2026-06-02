@@ -98,6 +98,9 @@ section{padding:4rem 3rem;}
 .contact-item:hover{color:var(--gold2);}
 .contact-icon{width:40px;height:40px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .contact-icon i{color:var(--gold);font-size:17px;}
+.hero-tag-container{display: flex;}
+.hero-wrap{width: 80%;}
+.hero-tag-img{height: 200px;}
 
 footer{background:var(--navy);text-align:center;padding:1.4rem;font-size:0.78rem;color:#3a4055;border-top:1px solid rgba(255,255,255,0.05);}
 
@@ -127,9 +130,17 @@ footer{background:var(--navy);text-align:center;padding:1.4rem;font-size:0.78rem
 </nav>
 
 <div class="hero">
-  <p class="hero-tag">Software Engineer &amp; Technical Lead</p>
-  <h1>Senior Full Stack Engineer<br>&amp; <span>Associate Tech Lead</span></h1>
-  <p class="hero-sub">9+ years delivering enterprise-grade solutions across Government Digital Transformation, Telecommunications, IoT &amp; Smart Energy, and National Identity Systems.</p>
+  <div class="hero-tag-container"> 
+    <div class="hero-wrap">
+        <p class="hero-tag">Software Engineer &amp; Technical Lead</p>
+        <h1>Senior Full Stack Engineer<br>&amp; <span>Associate Tech Lead</span></h1>
+        <p class="hero-sub">9+ years delivering enterprise-grade solutions across Government Digital Transformation, Telecommunications, IoT &amp; Smart Energy, and National Identity Systems.</p>
+    </div>
+    <div>
+      <img class="hero-tag-img" src="images/rohana.jpg" alt="Rohana Hettiarachchi"/>
+    </div>
+  </div>
+
   <div class="hero-badges">
     <span class="badge">Angular</span>
     <span class="badge">Java Spring Boot</span>
