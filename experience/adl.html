@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Axiata Digital Labs — Rohana Hettiarachchi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#0a1628;--navy2:#0f2040;
+  --gold:#c9a84c;--gold2:#e8c97a;
+  --light:#f7f5f0;--white:#ffffff;
+  --text:#1a1a2e;--muted:#5a6075;--border:#e0ddd5;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--light);color:var(--text);line-height:1.7;}
+
+nav{background:var(--navy);padding:0 3rem;display:flex;justify-content:space-between;align-items:center;height:64px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,0.2);}
+.nav-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.15rem;letter-spacing:1px;text-decoration:none;}
+.back-btn{display:flex;align-items:center;gap:0.5rem;color:#aab0c0;text-decoration:none;font-size:0.82rem;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s;}
+.back-btn:hover{color:var(--gold);}
+
+.hero{background:var(--navy2);padding:4.5rem 3rem 4rem;border-bottom:3px solid var(--gold);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border:1px solid rgba(201,168,76,0.07);border-radius:50%;}
+.hero-top{display:flex;align-items:flex-start;gap:2rem;margin-bottom:1.5rem;}
+.company-logo-wrap{width:72px;height:72px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.company-logo-wrap i{color:var(--gold);font-size:32px;}
+.hero-tag{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.75rem;}
+.hero-tag::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;color:#fff;line-height:1.2;}
+.hero h1 span{color:var(--gold2);}
+.hero-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem;}
+.meta-item{display:flex;align-items:center;gap:0.5rem;color:#8a90a0;font-size:0.85rem;}
+.meta-item i{color:var(--gold);font-size:16px;}
+.hero-summary{font-size:1rem;color:#8a90a0;max-width:700px;line-height:1.85;margin-top:1.5rem;}
+
+section{padding:3.5rem 3rem;}
+.section-label{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.75rem;}
+.section-label::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.section-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);margin-bottom:0.75rem;}
+.divider{width:48px;height:2px;background:var(--gold);margin-bottom:2.5rem;}
+
+/* PROJECT CARDS */
+.projects-section{background:var(--white);}
+.project-block{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:2rem;}
+.project-block:last-child{margin-bottom:0;}
+.project-header{background:var(--navy);padding:1.3rem 1.8rem;border-bottom:3px solid var(--gold);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;}
+.project-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;}
+.project-subtitle{font-size:0.8rem;color:#8a90a0;margin-top:0.25rem;}
+.project-period{background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);padding:4px 14px;border-radius:20px;font-size:0.72rem;letter-spacing:1px;white-space:nowrap;flex-shrink:0;}
+.project-body{padding:1.8rem;}
+.project-desc{font-size:0.93rem;color:#3a3f50;line-height:1.85;margin-bottom:1.2rem;}
+
+/* FEATURE GRID */
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+.feature-item{background:var(--light);border:1px solid var(--border);border-left:3px solid var(--gold);padding:1rem 1.2rem;border-radius:0 4px 4px 0;}
+.feature-item i{color:var(--gold);font-size:18px;margin-bottom:0.5rem;display:block;}
+.feature-title{font-size:0.82rem;font-weight:500;color:var(--navy);margin-bottom:0.3rem;}
+.feature-desc{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+
+/* STATS ROW */
+.stats-row{display:flex;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.stat-pill{background:var(--navy);border:1px solid rgba(201,168,76,0.25);border-radius:6px;padding:0.8rem 1.2rem;display:flex;align-items:center;gap:0.75rem;flex:1;min-width:140px;}
+.stat-pill i{color:var(--gold);font-size:18px;}
+.stat-pill-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);line-height:1;}
+.stat-pill-label{font-size:0.72rem;color:#8a90a0;letter-spacing:0.5px;}
+
+.tech-stack{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;}
+.tech-chip{background:var(--navy);color:var(--gold2);border:1px solid rgba(201,168,76,0.25);padding:5px 14px;border-radius:20px;font-size:0.78rem;}
+
+/* BULLET LIST */
+.point-list{list-style:none;margin-bottom:1.2rem;}
+.point-list li{font-size:0.88rem;color:#4a5060;padding:0.35rem 0 0.35rem 1.4rem;position:relative;line-height:1.65;}
+.point-list li::before{content:'—';position:absolute;left:0;color:var(--gold);}
+
+.page-footer{background:var(--navy);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(201,168,76,0.15);}
+.footer-back{display:flex;align-items:center;gap:0.5rem;color:#aab0c0;text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
+.footer-back:hover{color:var(--gold);}
+.footer-copy{font-size:0.75rem;color:#3a4055;}
+
+@media(max-width:768px){
+  nav{padding:0 1.5rem;}
+  .hero{padding:3rem 1.5rem;}
+  section{padding:2.5rem 1.5rem;}
+  .feature-grid{grid-template-columns:1fr;}
+  .project-header{flex-direction:column;}
+  .stats-row{flex-direction:column;}
+  .page-footer{flex-direction:column;gap:1rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../index.html">Rohana Hettiarachchi</a>
+  <a class="back-btn" href="../index.html"><i class="ti ti-arrow-left"></i> Back to Portfolio</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-top">
+    <div class="company-logo-wrap"><i class="ti ti-topology-star-3"></i></div>
+    <div>
+      <p class="hero-tag">Previous Position</p>
+      <h1>Axiata <span>Digital Labs</span></h1>
+      <div class="hero-meta">
+        <span class="meta-item"><i class="ti ti-briefcase"></i> Senior Software Engineer</span>
+        <span class="meta-item"><i class="ti ti-calendar"></i> 2022 – 2024</span>
+        <span class="meta-item"><i class="ti ti-map-pin"></i> Sri Lanka</span>
+      </div>
+    </div>
+  </div>
+  <p class="hero-summary">Contributed to large-scale telecom digital transformation platforms at Axiata Digital Labs — delivering enterprise microservice architectures, marketplace solutions, and smart agriculture systems that empower telecom operators across the region to build and customise their own digital services.</p>
+</div>
+
+<section class="projects-section">
+  <p class="section-label">Projects</p>
+  <h2 class="section-title">Work at Axiata Digital Labs</h2>
+  <div class="divider"></div>
+
+
+  <!-- IoT MIGRATION HIGHLIGHT -->
+  <div style="background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,0.3);border-left:4px solid var(--gold);padding:1.5rem 1.8rem;border-radius:0 6px 6px 0;margin-bottom:2.5rem;">
+    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+      <i class="ti ti-bulb" style="color:var(--gold);font-size:20px;"></i>
+      <div style="font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">IoT Innovation — Continued from Dialog R&amp;D</div>
+    </div>
+    <p style="font-size:0.92rem;color:#c8b870;line-height:1.75;">
+      The IoT concepts and framework originally researched and developed at Dialog Axiata — successfully proven across LECO (semi-government) and CEB (government) — were further migrated and adapted at Axiata Digital Labs for the enterprise telecom sector. A cross-sector IoT innovation journey spanning private R&amp;D, government utilities, and enterprise telecom.
+    </p>
+    <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+      <span style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);padding:4px 12px;border-radius:20px;font-size:0.75rem;">R&amp;D Origin: Dialog Axiata</span>
+      <span style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);padding:4px 12px;border-radius:20px;font-size:0.75rem;">Proven: LECO + CEB</span>
+      <span style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);padding:4px 12px;border-radius:20px;font-size:0.75rem;">Migrated: ADL Enterprise</span>
+    </div>
+  </div>
+
+  <!-- DTE -->
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div class="project-title">DTE — Digital Telco Enabler</div>
+        <div class="project-subtitle">Enterprise telecom service platform for ADL customers</div>
+      </div>
+      <span class="project-period">2022 – 2024</span>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">The DTE platform is a comprehensive digital telecom enablement solution — a versatile service package empowering ADL customers to create and customise diverse telecom services, resembling a mini software company. The platform comprised two web-based front-end applications backed by more than 20 independent microservices.</p>
+
+      <div class="stats-row">
+        <div class="stat-pill">
+          <i class="ti ti-layout-2"></i>
+          <div><div class="stat-pill-num">2</div><div class="stat-pill-label">Frontend Apps</div></div>
+        </div>
+        <div class="stat-pill">
+          <i class="ti ti-server"></i>
+          <div><div class="stat-pill-num">20+</div><div class="stat-pill-label">Microservices</div></div>
+        </div>
+        <div class="stat-pill">
+          <i class="ti ti-building-community"></i>
+          <div><div class="stat-pill-num">ADL</div><div class="stat-pill-label">Enterprise Client</div></div>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <i class="ti ti-apps"></i>
+          <div class="feature-title">Dual Frontend Applications</div>
+          <div class="feature-desc">Developed and maintained two web-based Angular frontend applications serving different user roles within the DTE ecosystem.</div>
+        </div>
+        <div class="feature-item">
+          <i class="ti ti-server-2"></i>
+          <div class="feature-title">Microservice Architecture</div>
+          <div class="feature-desc">Played a key role in delivering 20+ back-end microservices — each independently deployable and responsible for a distinct business capability.</div>
+        </div>
+        <div class="feature-item">
+          <i class="ti ti-plug-connected"></i>
+          <div class="feature-title">Integrated Digital Platform</div>
+          <div class="feature-desc">Established a fully integrated digital platform enabling ADL customers to create, configure, and manage telecom services end-to-end.</div>
+        </div>
+        <div class="feature-item">
+          <i class="ti ti-settings"></i>
+          <div class="feature-title">Service Customisation Engine</div>
+          <div class="feature-desc">Built flexible service customisation capabilities empowering customers to tailor their own telecom service offerings without platform-level changes.</div>
+        </div>
+      </div>
+
+      <div class="tech-stack">
+        <span class="tech-chip">Angular</span><span class="tech-chip">Java Spring Boot</span><span class="tech-chip">Microservices</span><span class="tech-chip">REST APIs</span><span class="tech-chip">Docker</span><span class="tech-chip">Kafka</span><span class="tech-chip">Keycloak</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADL MARKETPLACE -->
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div class="project-title">ADL Marketplace</div>
+        <div class="project-subtitle">Dynamic product & service marketplace for telecom operators</div>
+      </div>
+      <span class="project-period">2022 – 2024</span>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">Spearheaded the ADL Marketplace — a dynamic digital marketplace comprising two web-based front-end applications and over six back-end microservices. The platform enables ADL customers to create, list, and customise products and services for the market, providing a seamless end-to-end commerce experience.</p>
+
+      <div class="stats-row">
+        <div class="stat-pill">
+          <i class="ti ti-layout-2"></i>
+          <div><div class="stat-pill-num">2</div><div class="stat-pill-label">Frontend Apps</div></div>
+        </div>
+        <div class="stat-pill">
+          <i class="ti ti-server"></i>
+          <div><div class="stat-pill-num">6+</div><div class="stat-pill-label">Microservices</div></div>
+        </div>
+      </div>
+
+      <ul class="point-list">
+        <li>Spearheaded end-to-end development of the marketplace platform from architecture to delivery</li>
+        <li>Implemented dynamic product and service creation workflows for ADL customers</li>
+        <li>Built two distinct frontend applications serving different marketplace user roles</li>
+        <li>Developed six-plus backend microservices handling product management, orders, and service configurations</li>
+      </ul>
+
+      <div class="tech-stack">
+        <span class="tech-chip">Angular</span><span class="tech-chip">Java</span><span class="tech-chip">Spring Boot</span><span class="tech-chip">Microservices</span><span class="tech-chip">MySQL</span><span class="tech-chip">REST APIs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- M-AGRI -->
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div class="project-title">M-Agri — Smart Agriculture City</div>
+        <div class="project-subtitle">ADL Group Smart Agriculture Initiative</div>
+      </div>
+      <span class="project-period">2022</span>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">Spearheaded the M-Agri project as part of ADL Group's Smart Agriculture City initiative — a digital platform enabling comprehensive management of farms and factories, providing farmers and agricultural businesses with modern tools to manage operations efficiently.</p>
+      <ul class="point-list">
+        <li>Delivered comprehensive digital services for factory and farm management</li>
+        <li>Enabled farmers to manage agricultural operations through a unified digital platform</li>
+        <li>Part of ADL's broader smart city and IoT ecosystem strategy</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<div class="page-footer">
+  <a class="footer-back" href="../index.html"><i class="ti ti-arrow-left"></i> &nbsp;Back to Portfolio</a>
+  <span class="footer-copy">&copy; 2026 Rohana Thissa Hettiarachchi</span>
+</div>
+
+</body>
+</html>

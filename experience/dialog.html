@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dialog Axiata PLC — Rohana Hettiarachchi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#0a1628;--navy2:#0f2040;
+  --gold:#c9a84c;--gold2:#e8c97a;
+  --light:#f7f5f0;--white:#ffffff;
+  --text:#1a1a2e;--muted:#5a6075;--border:#e0ddd5;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--light);color:var(--text);line-height:1.7;}
+
+nav{background:var(--navy);padding:0 3rem;display:flex;justify-content:space-between;align-items:center;height:64px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,0.2);}
+.nav-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.15rem;letter-spacing:1px;text-decoration:none;}
+.back-btn{display:flex;align-items:center;gap:0.5rem;color:#aab0c0;text-decoration:none;font-size:0.82rem;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s;}
+.back-btn:hover{color:var(--gold);}
+
+.hero{background:var(--navy2);padding:4.5rem 3rem 4rem;border-bottom:3px solid var(--gold);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border:1px solid rgba(201,168,76,0.07);border-radius:50%;}
+.hero-top{display:flex;align-items:flex-start;gap:2rem;margin-bottom:1.5rem;}
+.company-logo-wrap{width:72px;height:72px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.company-logo-wrap i{color:var(--gold);font-size:32px;}
+.hero-tag{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.75rem;}
+.hero-tag::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;color:#fff;line-height:1.2;}
+.hero h1 span{color:var(--gold2);}
+.hero-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem;}
+.meta-item{display:flex;align-items:center;gap:0.5rem;color:#8a90a0;font-size:0.85rem;}
+.meta-item i{color:var(--gold);font-size:16px;}
+.hero-summary{font-size:1rem;color:#8a90a0;max-width:700px;line-height:1.85;margin-top:1.5rem;}
+
+section{padding:3.5rem 3rem;}
+.section-label{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.75rem;}
+.section-label::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.section-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);margin-bottom:0.75rem;}
+.divider{width:48px;height:2px;background:var(--gold);margin-bottom:2.5rem;}
+
+/* LECO FEATURED */
+.leco-section{background:var(--white);}
+.leco-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:2rem;}
+.leco-header{background:var(--navy);padding:1.5rem 2rem;border-bottom:3px solid var(--gold);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;}
+.leco-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;}
+.leco-subtitle{font-size:0.8rem;color:#8a90a0;margin-top:0.3rem;}
+.leco-badge{background:rgba(201,168,76,0.2);border:1px solid var(--gold);color:var(--gold2);padding:4px 14px;border-radius:20px;font-size:0.72rem;letter-spacing:1px;white-space:nowrap;flex-shrink:0;}
+.leco-body{padding:2rem;}
+.leco-desc{font-size:0.95rem;color:#3a3f50;line-height:1.85;margin-bottom:2rem;}
+
+/* ROLE HIGHLIGHT */
+.role-highlight{background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,0.3);border-left:4px solid var(--gold);padding:1.2rem 1.8rem;border-radius:0 6px 6px 0;margin-bottom:2rem;}
+.role-highlight-title{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+.role-highlight ul{list-style:none;}
+.role-highlight li{font-size:0.9rem;color:#c8b870;padding:0.3rem 0 0.3rem 1.4rem;position:relative;line-height:1.65;}
+.role-highlight li::before{content:'›';position:absolute;left:0;color:var(--gold);font-size:1rem;}
+
+/* STATS */
+.stats-row{display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;}
+.stat-pill{background:var(--navy);border:1px solid rgba(201,168,76,0.25);border-radius:6px;padding:0.8rem 1.2rem;display:flex;align-items:center;gap:0.75rem;flex:1;min-width:140px;}
+.stat-pill i{color:var(--gold);font-size:18px;}
+.stat-pill-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);line-height:1;}
+.stat-pill-label{font-size:0.72rem;color:#8a90a0;letter-spacing:0.5px;}
+
+/* SUB SYSTEMS */
+.subsystems{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:2rem;}
+.subsystem-card{background:var(--light);border:1px solid var(--border);border-top:2px solid var(--gold);padding:1.2rem 1.4rem;border-radius:0 0 6px 6px;}
+.subsystem-icon{width:36px;height:36px;background:rgba(201,168,76,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;}
+.subsystem-icon i{color:var(--gold);font-size:17px;}
+.subsystem-title{font-size:0.82rem;font-weight:500;color:var(--navy);margin-bottom:0.3rem;}
+.subsystem-desc{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+
+/* NMD / METER PLUGGING */
+.plugin-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:2rem;}
+.plugin-card{background:var(--navy);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:1.3rem 1.5rem;}
+.plugin-card-title{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:0.5rem;}
+.plugin-card-desc{font-size:0.82rem;color:#8a90a0;line-height:1.65;margin-bottom:0.75rem;}
+.plugin-points{list-style:none;}
+.plugin-points li{font-size:0.8rem;color:#aab0c0;padding:0.3rem 0 0.3rem 1.2rem;position:relative;}
+.plugin-points li::before{content:'—';position:absolute;left:0;color:var(--gold);}
+
+.tech-stack{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;}
+.tech-chip{background:var(--navy);color:var(--gold2);border:1px solid rgba(201,168,76,0.25);padding:5px 14px;border-radius:20px;font-size:0.78rem;}
+
+/* CEB */
+.ceb-block{background:var(--light);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:1.5rem 1.8rem;margin-bottom:2rem;}
+.ceb-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:0.4rem;}
+.ceb-period{font-size:0.75rem;color:var(--gold);letter-spacing:1px;margin-bottom:0.75rem;}
+.ceb-desc{font-size:0.9rem;color:#4a5060;line-height:1.75;margin-bottom:0.75rem;}
+.point-list{list-style:none;margin-bottom:0.75rem;}
+.point-list li{font-size:0.87rem;color:#4a5060;padding:0.3rem 0 0.3rem 1.4rem;position:relative;}
+.point-list li::before{content:'—';position:absolute;left:0;color:var(--gold);}
+
+/* OTHER PROJECTS */
+.other-section{background:var(--light);}
+.other-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.other-card{background:var(--white);border:1px solid var(--border);border-top:2px solid var(--gold);padding:1.4rem 1.6rem;border-radius:0 0 6px 6px;}
+.other-card-period{font-size:0.72rem;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;}
+.other-card-title{font-weight:500;font-size:0.95rem;color:var(--navy);margin-bottom:0.5rem;}
+.other-card-desc{font-size:0.85rem;color:#4a5060;line-height:1.7;margin-bottom:0.75rem;}
+.other-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.other-tag{background:var(--light);color:var(--muted);padding:3px 10px;border-radius:3px;font-size:0.75rem;}
+
+.page-footer{background:var(--navy);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(201,168,76,0.15);}
+.footer-back{display:flex;align-items:center;gap:0.5rem;color:#aab0c0;text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
+.footer-back:hover{color:var(--gold);}
+.footer-copy{font-size:0.75rem;color:#3a4055;}
+
+@media(max-width:768px){
+  nav{padding:0 1.5rem;}
+  .hero{padding:3rem 1.5rem;}
+  section{padding:2.5rem 1.5rem;}
+  .subsystems,.plugin-grid,.other-grid{grid-template-columns:1fr;}
+  .stats-row{flex-direction:column;}
+  .leco-header{flex-direction:column;}
+  .page-footer{flex-direction:column;gap:1rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../index.html">Rohana Hettiarachchi</a>
+  <a class="back-btn" href="../index.html"><i class="ti ti-arrow-left"></i> Back to Portfolio</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-top">
+    <div class="company-logo-wrap"><i class="ti ti-antenna"></i></div>
+    <div>
+      <p class="hero-tag">Previous Position</p>
+      <h1>Dialog <span>Axiata PLC</span></h1>
+      <div class="hero-meta">
+        <span class="meta-item"><i class="ti ti-briefcase"></i> Software Engineer</span>
+        <span class="meta-item"><i class="ti ti-calendar"></i> 2017 – 2022</span>
+        <span class="meta-item"><i class="ti ti-map-pin"></i> Sri Lanka</span>
+      </div>
+    </div>
+  </div>
+  <p class="hero-summary">5 years at Dialog Axiata PLC — Sri Lanka's largest telecommunications company — delivering smart electricity management platforms, IoT dashboards, HR systems, and telecom service solutions. Led full-stack development teams and drove key R&amp;D initiatives in the smart energy and IoT space.</p>
+</div>
+
+<!-- LECO FEATURED -->
+<section class="leco-section" id="leco">
+  <p class="section-label">Flagship Project</p>
+  <h2 class="section-title">LECO Smart Metering &amp; Management System</h2>
+  <div class="divider"></div>
+
+  <div class="leco-card">
+    <div class="leco-header">
+      <div>
+        <div class="leco-title">Lanka Electricity Company (LECO) — Smart Electricity Platform</div>
+        <div class="leco-subtitle">End-to-end smart metering, monitoring, and management ecosystem</div>
+      </div>
+      <span class="leco-badge">⭐ FLAGSHIP</span>
+    </div>
+    <div class="leco-body">
+      <p class="leco-desc">A comprehensive smart electricity management and monitoring platform developed for the Lanka Electricity Company (LECO) — covering the full lifecycle from R&amp;D to production deployment. The system spans public dashboards, utility monitoring, smart meter integrations, NMD device plugins, IoT dashboards, and real-time data analytics. This was the most significant and technically deep project of the Dialog tenure, involving full-stack leadership, architecture decisions, server operations, and team management.</p>
+
+      <div class="role-highlight">
+        <div class="role-highlight-title">My Role &amp; Responsibilities</div>
+        <ul>
+          <li>Involved in design decisions and full system architecture from the ground up</li>
+          <li>Led a full-stack development team of 4 members</li>
+          <li>Handled all server operations, configuration, and deployment management</li>
+          <li>Drove protocol architecture design for NMD and Smart Meter device plugins</li>
+          <li>Managed database optimisation and performance tuning</li>
+          <li>Oversaw AWS Cloud server management and Docker-based deployment pipelines</li>
+        </ul>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-pill"><i class="ti ti-users"></i><div><div class="stat-pill-num">4</div><div class="stat-pill-label">Team Members Led</div></div></div>
+        <div class="stat-pill"><i class="ti ti-calendar"></i><div><div class="stat-pill-num">5yr</div><div class="stat-pill-label">Project Duration</div></div></div>
+        <div class="stat-pill"><i class="ti ti-plug"></i><div><div class="stat-pill-num">4+</div><div class="stat-pill-label">Sub-systems Built</div></div></div>
+        <div class="stat-pill"><i class="ti ti-cloud"></i><div><div class="stat-pill-num">AWS</div><div class="stat-pill-label">Cloud Deployed</div></div></div>
+      </div>
+
+      <!-- SUB SYSTEMS -->
+      <p style="font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Systems &amp; Dashboards Built</p>
+      <div class="subsystems">
+        <div class="subsystem-card">
+          <div class="subsystem-icon"><i class="ti ti-world"></i></div>
+          <div class="subsystem-title">LECO Public Dashboard</div>
+          <div class="subsystem-desc">Public-facing dashboard displaying electricity network zones on a map. Provides customers access to their account information and data analytics charts.</div>
+        </div>
+        <div class="subsystem-card">
+          <div class="subsystem-icon"><i class="ti ti-layout-dashboard"></i></div>
+          <div class="subsystem-title">LECO Utility Dashboard</div>
+          <div class="subsystem-desc">Internal utility dashboard for real-time monitoring of the LECO electricity network — device readings, system health, and network management.</div>
+        </div>
+        <div class="subsystem-card">
+          <div class="subsystem-icon"><i class="ti ti-chart-line"></i></div>
+          <div class="subsystem-title">Monitoring Dashboard</div>
+          <div class="subsystem-desc">Comprehensive monitoring interface for smart meter readings, device status tracking, and historical data management across the LECO network.</div>
+        </div>
+        <div class="subsystem-card">
+          <div class="subsystem-icon"><i class="ti ti-cpu"></i></div>
+          <div class="subsystem-title">IoT Dynamic Dashboard</div>
+          <div class="subsystem-desc">Fully dynamic web-based dashboard allowing users to create and configure custom widgets for IoT device management and monitoring.</div>
+        </div>
+      </div>
+
+      <!-- PLUGINS -->
+      <p style="font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Hardware Device Plugins</p>
+      <div class="plugin-grid">
+        <div class="plugin-card">
+          <div class="plugin-card-title">NMD Plugin — Network Monitoring Device</div>
+          <div class="plugin-card-desc">Plugin for the Electricity Network Monitoring Device (NMD) enabling real-time connectivity, API exposure, and network behaviour monitoring.</div>
+          <ul class="plugin-points">
+            <li>Developed protocol architecture for NMD communication</li>
+            <li>Exposed APIs for real-time NMD readings</li>
+            <li>Managed NMD server communications</li>
+            <li>Database optimisation for high-frequency data storage</li>
+            <li>Server configuration and deployment</li>
+          </ul>
+        </div>
+        <div class="plugin-card">
+          <div class="plugin-card-title">Smart Meter Plugin</div>
+          <div class="plugin-card-desc">Plugin for connecting electricity Smart Meters and exposing APIs to retrieve meter readings in real time.</div>
+          <ul class="plugin-points">
+            <li>Designed protocol architecture for smart meter integration</li>
+            <li>Exposed REST APIs for meter reading retrieval</li>
+            <li>Managed meter server communications</li>
+            <li>Data serialisation via JSON and XML</li>
+            <li>Database optimisation for meter data pipelines</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- IoT ACHIEVEMENT TIMELINE -->
+      <div style="background:linear-gradient(135deg,var(--navy),var(--navy2));border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:2rem;margin-bottom:2rem;">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">
+          <div style="width:44px;height:44px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="ti ti-trophy" style="color:var(--gold);font-size:20px;"></i>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;">IoT Framework — Cross-Sector Achievement</div>
+            <div style="font-size:0.78rem;color:var(--gold2);margin-top:0.2rem;">R&D Private Sector → Semi-Government → Government → Enterprise Telecom</div>
+          </div>
+        </div>
+        <p style="font-size:0.9rem;color:#8a90a0;line-height:1.8;margin-bottom:1.5rem;">
+          Independently researched, designed, and developed a private-sector IoT framework from R&D stage — then successfully adapted and deployed it across multiple sectors including semi-government (LECO), government (CEB), and later migrated the same concept to enterprise telecom at ADL. A single IoT innovation proven across three distinct sectors.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:1rem;text-align:center;">
+            <div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Stage 1</div>
+            <div style="font-size:0.85rem;color:#fff;font-weight:500;margin-bottom:0.3rem;">R&D</div>
+            <div style="font-size:0.75rem;color:#8a90a0;">Private sector IoT framework designed &amp; built from scratch</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:1rem;text-align:center;">
+            <div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Stage 2</div>
+            <div style="font-size:0.85rem;color:#fff;font-weight:500;margin-bottom:0.3rem;">LECO</div>
+            <div style="font-size:0.75rem;color:#8a90a0;">Successfully adapted for semi-government electricity utility</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:1rem;text-align:center;">
+            <div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Stage 3</div>
+            <div style="font-size:0.85rem;color:#fff;font-weight:500;margin-bottom:0.3rem;">CEB</div>
+            <div style="font-size:0.75rem;color:#8a90a0;">Deployed for government Ceylon Electricity Board</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:1rem;text-align:center;">
+            <div style="font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Stage 4</div>
+            <div style="font-size:0.85rem;color:#fff;font-weight:500;margin-bottom:0.3rem;">ADL</div>
+            <div style="font-size:0.75rem;color:#8a90a0;">Concept migrated to enterprise telecom at Axiata Digital Labs</div>
+          </div>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-chip">Java</span><span class="tech-chip">Spring Boot</span><span class="tech-chip">Hibernate</span><span class="tech-chip">Angular</span><span class="tech-chip">PHP</span><span class="tech-chip">Laravel</span><span class="tech-chip">MySQL</span><span class="tech-chip">MongoDB</span><span class="tech-chip">Docker</span><span class="tech-chip">Jenkins</span><span class="tech-chip">AWS</span><span class="tech-chip">Oracle</span><span class="tech-chip">Bootstrap</span><span class="tech-chip">JavaScript</span><span class="tech-chip">REST APIs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CEB -->
+  <div class="ceb-block">
+    <div class="ceb-title">CEB Smart Metering &amp; Management System</div>
+    <div class="ceb-period">Ceylon Electricity Board &nbsp;·&nbsp; 2019 – 2020</div>
+    <p class="ceb-desc">Smart metering and management solution for the Ceylon Electricity Board (CEB) — similar in scope to the LECO system, covering monitoring dashboards, utility dashboards, and NMD/Smart Meter device plugins.</p>
+    <ul class="point-list">
+      <li>Involved in design decisions and architecture</li>
+      <li>Led full-stack development across four developers</li>
+      <li>Handled server configuration and deployment on Dialog Cloud (Ubuntu OS)</li>
+    </ul>
+    <div class="tech-stack">
+      <span class="tech-chip">PHP</span><span class="tech-chip">Laravel</span><span class="tech-chip">MySQL</span><span class="tech-chip">Dialog Cloud</span><span class="tech-chip">Ubuntu OS</span>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER PROJECTS -->
+<section class="other-section">
+  <p class="section-label">Other Projects</p>
+  <h2 class="section-title">Additional Work at Dialog Axiata</h2>
+  <div class="divider"></div>
+  <div class="other-grid">
+
+    <div class="other-card">
+      <div class="other-card-period">2021 – 2022</div>
+      <div class="other-card-title">HR Marketplace Interview Platform</div>
+      <p class="other-card-desc">Online interview management and monitoring solution — enabling interview scheduling, online question delivery, video response capture, and a fully automated interview process for HR departments.</p>
+      <div class="other-tags"><span class="other-tag">React</span><span class="other-tag">Node.js</span><span class="other-tag">MySQL</span></div>
+    </div>
+
+    <div class="other-card">
+      <div class="other-card-period">2021 – 2022</div>
+      <div class="other-card-title">Dialog Sooms — Meeting Room Reservation</div>
+      <p class="other-card-desc">Reservation system enabling users to book meeting rooms and seats, with personalised features for data observation and analytics.</p>
+      <div class="other-tags"><span class="other-tag">PHP Laravel</span><span class="other-tag">Homestead</span><span class="other-tag">Vagrant</span><span class="other-tag">MySQL</span></div>
+    </div>
+
+    <div class="other-card">
+      <div class="other-card-period">2017 – 2018</div>
+      <div class="other-card-title">M2M — SIM Management &amp; Monitoring</div>
+      <p class="other-card-desc">SIM management and monitoring solution for Dialog Axiata, featuring a monitoring dashboard for SIM lifecycle management across the network.</p>
+      <div class="other-tags"><span class="other-tag">PHP</span><span class="other-tag">Laravel</span><span class="other-tag">MySQL</span></div>
+    </div>
+
+    <div class="other-card">
+      <div class="other-card-period">2017 – 2018</div>
+      <div class="other-card-title">ADS MIFE — API &amp; Services Management</div>
+      <p class="other-card-desc">API and Axiata services management system handling customer complaint resolution and operations management, including patch updates and server operations.</p>
+      <div class="other-tags"><span class="other-tag">Linux</span><span class="other-tag">MySQL</span><span class="other-tag">Xshell</span><span class="other-tag">PuTTY</span></div>
+    </div>
+
+    <div class="other-card">
+      <div class="other-card-period">2017 – 2018</div>
+      <div class="other-card-title">MIFE Repository Dashboard</div>
+      <p class="other-card-desc">Internal dashboard for API management within the MIFE platform, providing visibility and control over API repositories and services.</p>
+      <div class="other-tags"><span class="other-tag">PHP</span><span class="other-tag">MySQL</span><span class="other-tag">APIs</span></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="page-footer">
+  <a class="footer-back" href="../index.html"><i class="ti ti-arrow-left"></i> &nbsp;Back to Portfolio</a>
+  <span class="footer-copy">&copy; 2026 Rohana Thissa Hettiarachchi</span>
+</div>
+
+</body>
+</html>

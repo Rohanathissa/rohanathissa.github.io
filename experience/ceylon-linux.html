@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ceylon Linux — Rohana Hettiarachchi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#0a1628;--navy2:#0f2040;
+  --gold:#c9a84c;--gold2:#e8c97a;
+  --light:#f7f5f0;--white:#ffffff;
+  --text:#1a1a2e;--muted:#5a6075;--border:#e0ddd5;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--light);color:var(--text);line-height:1.7;}
+
+nav{background:var(--navy);padding:0 3rem;display:flex;justify-content:space-between;align-items:center;height:64px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,0.2);}
+.nav-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.15rem;letter-spacing:1px;text-decoration:none;}
+.back-btn{display:flex;align-items:center;gap:0.5rem;color:#aab0c0;text-decoration:none;font-size:0.82rem;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s;}
+.back-btn:hover{color:var(--gold);}
+
+.hero{background:var(--navy2);padding:4.5rem 3rem 4rem;border-bottom:3px solid var(--gold);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border:1px solid rgba(201,168,76,0.07);border-radius:50%;}
+.hero-top{display:flex;align-items:flex-start;gap:2rem;margin-bottom:1.5rem;}
+.company-logo-wrap{width:72px;height:72px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.company-logo-wrap i{color:var(--gold);font-size:32px;}
+.hero-tag{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.75rem;}
+.hero-tag::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;color:#fff;line-height:1.2;}
+.hero h1 span{color:var(--gold2);}
+.hero-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem;}
+.meta-item{display:flex;align-items:center;gap:0.5rem;color:#8a90a0;font-size:0.85rem;}
+.meta-item i{color:var(--gold);font-size:16px;}
+.hero-summary{font-size:1rem;color:#8a90a0;max-width:700px;line-height:1.85;margin-top:1.5rem;}
+
+/* CAREER START BAND */
+.career-band{background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,0.3);border-left:4px solid var(--gold);padding:1.2rem 1.8rem;margin:0 3rem;border-radius:0 6px 6px 0;display:flex;align-items:center;gap:1rem;}
+.career-band i{color:var(--gold);font-size:22px;flex-shrink:0;}
+.career-band p{font-size:0.92rem;color:#c8b870;line-height:1.6;}
+.career-band strong{color:var(--gold2);}
+
+section{padding:3.5rem 3rem;}
+.section-label{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.75rem;}
+.section-label::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.section-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);margin-bottom:0.75rem;}
+.divider{width:48px;height:2px;background:var(--gold);margin-bottom:2.5rem;}
+
+/* PROJECT CARDS */
+.projects-section{background:var(--white);}
+.project-block{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:2rem;}
+.project-block:last-child{margin-bottom:0;}
+.project-header{background:var(--navy);padding:1.3rem 1.8rem;border-bottom:3px solid var(--gold);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;}
+.project-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;}
+.project-subtitle{font-size:0.8rem;color:#8a90a0;margin-top:0.25rem;}
+.project-period{background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);padding:4px 14px;border-radius:20px;font-size:0.72rem;letter-spacing:1px;white-space:nowrap;flex-shrink:0;}
+.project-body{padding:1.8rem;}
+.project-desc{font-size:0.93rem;color:#3a3f50;line-height:1.85;margin-bottom:1.5rem;}
+
+/* MODULES GRID */
+.modules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem;}
+.module-card{background:var(--light);border:1px solid var(--border);border-left:3px solid var(--gold);padding:1rem 1.2rem;border-radius:0 4px 4px 0;}
+.module-card i{color:var(--gold);font-size:18px;margin-bottom:0.5rem;display:block;}
+.module-title{font-size:0.82rem;font-weight:500;color:var(--navy);margin-bottom:0.25rem;}
+.module-desc{font-size:0.79rem;color:var(--muted);line-height:1.6;}
+
+/* APP TYPE BADGES */
+.app-types{display:flex;gap:0.75rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.app-type{display:flex;align-items:center;gap:0.5rem;background:var(--navy);border:1px solid rgba(201,168,76,0.25);padding:0.6rem 1.1rem;border-radius:6px;}
+.app-type i{color:var(--gold);font-size:16px;}
+.app-type span{font-size:0.82rem;color:#aab0c0;}
+
+/* HIGHLIGHT ROLE */
+.role-card{background:var(--navy);border-radius:6px;padding:1.2rem 1.5rem;margin-bottom:1.5rem;border-bottom:2px solid var(--gold);}
+.role-card-title{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+.role-card ul{list-style:none;}
+.role-card li{font-size:0.87rem;color:#aab0c0;padding:0.3rem 0 0.3rem 1.4rem;position:relative;}
+.role-card li::before{content:'›';position:absolute;left:0;color:var(--gold);}
+
+.tech-stack{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;}
+.tech-chip{background:var(--navy);color:var(--gold2);border:1px solid rgba(201,168,76,0.25);padding:5px 14px;border-radius:20px;font-size:0.78rem;}
+
+/* FOUNDATION SECTION */
+.foundation-section{background:var(--light);}
+.foundation-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.foundation-card{background:var(--white);border:1px solid var(--border);border-top:2px solid var(--gold);padding:1.4rem;border-radius:0 0 6px 6px;text-align:center;}
+.foundation-icon{width:44px;height:44px;background:rgba(201,168,76,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;}
+.foundation-icon i{color:var(--gold);font-size:20px;}
+.foundation-title{font-size:0.85rem;font-weight:500;color:var(--navy);margin-bottom:0.3rem;}
+.foundation-desc{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+
+.page-footer{background:var(--navy);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(201,168,76,0.15);}
+.footer-back{display:flex;align-items:center;gap:0.5rem;color:#aab0c0;text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
+.footer-back:hover{color:var(--gold);}
+.footer-copy{font-size:0.75rem;color:#3a4055;}
+
+@media(max-width:768px){
+  nav{padding:0 1.5rem;}
+  .hero{padding:3rem 1.5rem;}
+  .career-band{margin:0 1.5rem;}
+  section{padding:2.5rem 1.5rem;}
+  .modules-grid,.foundation-grid{grid-template-columns:1fr;}
+  .project-header{flex-direction:column;}
+  .page-footer{flex-direction:column;gap:1rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../index.html">Rohana Hettiarachchi</a>
+  <a class="back-btn" href="../index.html"><i class="ti ti-arrow-left"></i> Back to Portfolio</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-top">
+    <div class="company-logo-wrap"><i class="ti ti-terminal-2"></i></div>
+    <div>
+      <p class="hero-tag">Career Foundation</p>
+      <h1>Ceylon <span>Linux (Pvt) Ltd</span></h1>
+      <div class="hero-meta">
+        <span class="meta-item"><i class="ti ti-briefcase"></i> Associate Software Engineer</span>
+        <span class="meta-item"><i class="ti ti-calendar"></i> 2016 – 2017</span>
+        <span class="meta-item"><i class="ti ti-map-pin"></i> Sri Lanka</span>
+      </div>
+    </div>
+  </div>
+  <p class="hero-summary">The starting point of a 9+ year engineering career — building real-world enterprise sales management systems for leading Sri Lankan companies. Gained solid foundations in full-stack web development, mobile applications, Linux environments, and database optimisation.</p>
+</div>
+
+<div class="career-band">
+  <i class="ti ti-rocket"></i>
+  <p><strong>Career Starting Point:</strong> Ceylon Linux was where the engineering journey began — delivering production-grade web and mobile applications for Sri Lankan enterprise clients fresh out of university, laying the technical foundation for everything that followed.</p>
+</div>
+
+<!-- PROJECTS -->
+<section class="projects-section">
+  <p class="section-label">Projects</p>
+  <h2 class="section-title">Work at Ceylon Linux</h2>
+  <div class="divider"></div>
+
+  <!-- WATAWALA -->
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div class="project-title">Watawala Sales Management System</div>
+        <div class="project-subtitle">Watawala Tea Ceylon Ltd. — Web &amp; Mobile Application</div>
+      </div>
+      <span class="project-period">2016 – 2017</span>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">A comprehensive sales management system developed for Watawala Tea Ceylon Ltd. — one of Sri Lanka's leading tea companies. The system covers the full operational lifecycle with both a web application and a mobile application, enabling field teams and management to operate seamlessly.</p>
+
+      <div class="app-types">
+        <div class="app-type"><i class="ti ti-browser"></i><span>Web Application</span></div>
+        <div class="app-type"><i class="ti ti-device-mobile"></i><span>Mobile Application</span></div>
+      </div>
+
+      <div class="modules-grid">
+        <div class="module-card">
+          <i class="ti ti-building-store"></i>
+          <div class="module-title">Store Management</div>
+          <div class="module-desc">Manage store inventory, product listings, and stock movement across distribution points.</div>
+        </div>
+        <div class="module-card">
+          <i class="ti ti-chart-bar"></i>
+          <div class="module-title">Sales Management</div>
+          <div class="module-desc">Track and manage sales transactions, orders, and performance reporting.</div>
+        </div>
+        <div class="module-card">
+          <i class="ti ti-users"></i>
+          <div class="module-title">Employee Management</div>
+          <div class="module-desc">Manage field staff, assignments, attendance, and performance monitoring.</div>
+        </div>
+        <div class="module-card">
+          <i class="ti ti-route"></i>
+          <div class="module-title">Routing Management</div>
+          <div class="module-desc">Plan and manage delivery and sales routes for field representatives across regions.</div>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-card-title">My Role</div>
+        <ul>
+          <li>Full-stack development across web and mobile application components</li>
+          <li>Built and integrated all four core modules from scratch</li>
+          <li>Worked in Linux server environment for deployment and operations</li>
+        </ul>
+      </div>
+
+      <div class="tech-stack">
+        <span class="tech-chip">PHP</span><span class="tech-chip">CodeIgniter</span><span class="tech-chip">HTML</span><span class="tech-chip">CSS</span><span class="tech-chip">Bootstrap</span><span class="tech-chip">JavaScript</span><span class="tech-chip">MySQL</span><span class="tech-chip">Linux</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDDHALEPA -->
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div class="project-title">Siddhalepa Sales Management System</div>
+        <div class="project-subtitle">Hettigoda Industries (Pvt) Ltd. — Web &amp; Mobile Application</div>
+      </div>
+      <span class="project-period">2016 – 2017</span>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">A sales management system developed for Hettigoda Industries (Pvt) Ltd. — the company behind the iconic Siddhalepa brand. The system provides comprehensive management tools across store operations, employee management, and delivery routing, with both web and mobile application components.</p>
+
+      <div class="app-types">
+        <div class="app-type"><i class="ti ti-browser"></i><span>Web Application</span></div>
+        <div class="app-type"><i class="ti ti-device-mobile"></i><span>Mobile Application</span></div>
+      </div>
+
+      <div class="modules-grid">
+        <div class="module-card">
+          <i class="ti ti-building-store"></i>
+          <div class="module-title">Store Management</div>
+          <div class="module-desc">Product and inventory management across Siddhalepa distribution network.</div>
+        </div>
+        <div class="module-card">
+          <i class="ti ti-users"></i>
+          <div class="module-title">Employee Management</div>
+          <div class="module-desc">Field staff management, assignments, and performance tracking.</div>
+        </div>
+        <div class="module-card">
+          <i class="ti ti-route"></i>
+          <div class="module-title">Routing Management</div>
+          <div class="module-desc">Route planning and management for field sales and delivery teams.</div>
+        </div>
+        <div class="module-card">
+          <i class="ti ti-database"></i>
+          <div class="module-title">Query Optimisation</div>
+          <div class="module-desc">Optimised database queries for improved system performance and faster data retrieval.</div>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-card-title">My Role</div>
+        <ul>
+          <li>Full-stack development across all system modules</li>
+          <li>Database query optimisation for improved performance</li>
+          <li>Linux environment deployment and server operations</li>
+        </ul>
+      </div>
+
+      <div class="tech-stack">
+        <span class="tech-chip">PHP</span><span class="tech-chip">CodeIgniter</span><span class="tech-chip">HTML</span><span class="tech-chip">CSS</span><span class="tech-chip">Bootstrap</span><span class="tech-chip">JavaScript</span><span class="tech-chip">MySQL</span><span class="tech-chip">Linux</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOUNDATION -->
+<section class="foundation-section">
+  <p class="section-label">Career Foundation</p>
+  <h2 class="section-title">Skills Built Here</h2>
+  <div class="divider"></div>
+  <div class="foundation-grid">
+    <div class="foundation-card">
+      <div class="foundation-icon"><i class="ti ti-code"></i></div>
+      <div class="foundation-title">Full-Stack Development</div>
+      <div class="foundation-desc">Hands-on experience building complete web and mobile applications end-to-end from day one.</div>
+    </div>
+    <div class="foundation-card">
+      <div class="foundation-icon"><i class="ti ti-database"></i></div>
+      <div class="foundation-title">Database Optimisation</div>
+      <div class="foundation-desc">Early exposure to query optimisation and database performance tuning in production systems.</div>
+    </div>
+    <div class="foundation-card">
+      <div class="foundation-icon"><i class="ti ti-server"></i></div>
+      <div class="foundation-title">Linux Environment</div>
+      <div class="foundation-desc">Built foundational Linux server skills — deployment, operations, and server management.</div>
+    </div>
+  </div>
+</section>
+
+<div class="page-footer">
+  <a class="footer-back" href="../index.html"><i class="ti ti-arrow-left"></i> &nbsp;Back to Portfolio</a>
+  <span class="footer-copy">&copy; 2026 Rohana Thissa Hettiarachchi</span>
+</div>
+
+</body>
+</html>
