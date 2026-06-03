@@ -101,6 +101,21 @@ section{padding:4rem 3rem;}
 .hero-tag-container{display: flex;}
 .hero-wrap{width: 80%;}
 .hero-tag-img{height: 200px;}
+.read-more-btn {
+  padding-left:10cap;
+    text-decoration: none;
+    font-weight: 600;
+    color: #28c50e;
+}
+
+.read-more-btn span {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.read-more-btn:hover span {
+    transform: translateX(5px);
+}
 
 footer{background:var(--navy);text-align:center;padding:1.4rem;font-size:0.78rem;color:#3a4055;border-top:1px solid rgba(255,255,255,0.05);}
 
@@ -229,7 +244,11 @@ footer{background:var(--navy);text-align:center;padding:1.4rem;font-size:0.78rem
   <div class="company-block">
     <div class="company-header">
       <div>
-        <div class="company-name">Inova IT Systems &amp; Bevolv</div>
+        <div class="company-name">Inova IT Systems &amp; Bevolv 
+          <a class="read-more-btn" href="../New folder/experience/inova_bevolv.html">
+              Read More <span>&raquo;</span>
+          </a>
+        </div>
         <div class="company-role">Senior Full Stack Engineer / Associate Tech Lead</div>
       </div>
       <div class="company-period">2024 – Present</div>
